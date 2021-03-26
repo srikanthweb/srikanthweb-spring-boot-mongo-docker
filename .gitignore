@@ -36,5 +36,3 @@ dist/
 node_modules/
 .tmp/
 *.log
-/bin/
-/target/
