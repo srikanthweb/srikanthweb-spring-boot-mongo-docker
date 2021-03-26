@@ -16,8 +16,7 @@ spec:
         name: springboot
         ports:
         - name: springboot
-		  containerPort: 8080
-		  
+		      containerPort: 8080		  
 ---
 # Node Port Service For SpringApp
 apiVersion: v1
@@ -49,19 +48,19 @@ spec:
         name: mongo
     spec:
       containers:
-        - image: mongo
-          name: mongo
-          ports:
+      - image: mongo
+        name: mongo
+        ports:
 		    - name: mongo
-              containerPort: 27017
-			  hostPort: 27017
-          volumeMounts:
-            - name: mongo-persistent-storage
-              mountPath: /data/db
-      volumes:
+          containerPort: 27017
+			    hostPort: 27017
+        volumeMounts:
         - name: mongo-persistent-storage
-          hostPath:
-            path: /tmp/dbbackup
+          mountPath: /data/db
+      volumes:
+      - name: mongo-persistent-storage
+        hostPath:
+          path: /tmp/dbbackup
 ---
 # Mongo Node Port RC
 apiVersion: v1
@@ -77,5 +76,3 @@ spec:
       targetPort: 27017
   selector:
     name: mongo
-
-        		
