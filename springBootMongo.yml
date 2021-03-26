@@ -1,6 +1,6 @@
 ---
 apiVersion: apps/v1
-kind: replicationcontroller
+kind: Deployment
 metadata:
   labels:
     name: springboot
